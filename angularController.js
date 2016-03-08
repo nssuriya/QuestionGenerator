@@ -6,31 +6,44 @@ app.controller('generateController',function($scope){
 	$scope.fiveMarks = ["First five marks","Second five marks","Third five mrks","Fourth five mrks","Fifth five mrks"];
 	$scope.two =[];
 	$scope.five=[];
+	$scope.typeCounter = 0;
+	$scope.typeNums = [];
+	$scope.requiredTypes=[];
+	$scope.requiredQuestions=[];
+	$scope.addType=function()
+	{
+		$scope.typeCounter++;
+		$scope.typeNums.push(($scope.typeCounter)-1);
+	}
 	$scope.generate=function(){
-		nq2 = $scope.noTwoMarks;
-		nq5 = $scope.noFiveMarks;
-		used2 = new Array();
-		used5 = new Array();
-		$scope.two =[];
-		$scope.five=[];
-		while(nq2>0)
+		for(index=0; index<$scope.requiredTypes.length; index++)
 		{
-			num=Math.floor((Math.random() * 10) + 1);
-			if(used2.indexOf(num)<=-1)
+			nq = $scope.requiredQuestions[index];
+			type = $scope.requiredTypes[index];
+			used = new Array();
+			var requiredArrayToUse=[];
+			var requiredArrayToPush=[];
+			if(type==2)
 			{
-				$scope.two.push($scope.twoMarks[num-1]);
-				used2.push(num);
-				nq2--;
+				$scope.two =[];
+				requiredArrayToUse=$scope.twoMarks;
+				$scope.two = requiredArrayToPush;
 			}
-		}
-		while(nq5>0)
-		{
-			num=Math.floor((Math.random() * 5) + 1);
-			if(used5.indexOf(num)<=-1)
+			else if(type==5)
 			{
-				$scope.five.push($scope.fiveMarks[num-1]);
-				used5.push(num);
-				nq5--;
+				$scope.five=[];
+				requiredArrayToUse=$scope.fiveMarks;
+				$scope.five = requiredArrayToPush;
+			}
+			while(nq>0)
+			{
+				num=Math.floor((Math.random() * (requiredArrayToUse.length)) + 1);
+				if(used.indexOf(num)<=-1)
+				{
+					requiredArrayToPush.push(requiredArrayToUse[num-1]);
+					used.push(num);
+					nq--;
+				}
 			}
 		}
 	};

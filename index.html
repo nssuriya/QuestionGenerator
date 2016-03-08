@@ -9,8 +9,11 @@
 </head>
 
 <body ng-controller="generateController">
-<p>Number of 2 Marks questions <input type="number" ng-model="noTwoMarks" placeholder="Enter a number"></p>
-<p>Number of 5 Marks questions <input type="number" ng-model="noFiveMarks" placeholder="Enter a number"></p>
+<button ng-click="addType()">Add Type</button>
+<div ng-repeat="i in typeNums">
+<p>Enter the type of questions <input type="number" ng-model="requiredTypes[i]" placeholder="Enter a number"></p>
+<p>Enter the number of questions <input type="number" ng-model="requiredQuestions[i]" placeholder="Enter a number"></p>
+</div>
 <button ng-click="generate()">Generate</button>
 <div id="twoMarkQuestions">
 <h2>Two Mark Questions</h2>
