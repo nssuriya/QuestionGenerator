@@ -1,14 +1,21 @@
-<html ng-app="generate">
+<html>
 <head>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
-<script type="text/javascript" src ="mainController.js"></script>
+<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+
+<script type= "text/javascript" src ="mainController.js"></script>
+
 </head>
 
-<body ng-controller="mainController">
-<p>Number of Questions <input type="number" ng-model="number" placeholder="Enter a number"></p>
-<button ng-click="" >Generate</button>
-
+<body>
+<p>Number of 2 Marks questions <input type="number" id="twomarks" placeholder="Enter a number"></p>
+<p>Number of 5 Marks questions <input type="number" id="fivemarks" placeholder="Enter a number"></p>
+<button id="generate">Generate</button>
+<div id="twoMarkQuestions">
+</div>
+<div id="fiveMarkQuestions">
+</div>
 
 </body>
 </html>
