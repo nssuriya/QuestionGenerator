@@ -1,20 +1,28 @@
-<html>
+<html ng-app="qpgenerator">
 <head>
 <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 
-
-<script type= "text/javascript" src ="mainController.js"></script>
+<script type= "text/javascript" src ="angularController.js"></script>
 
 </head>
 
-<body>
-<p>Number of 2 Marks questions <input type="number" id="twomarks" placeholder="Enter a number"></p>
-<p>Number of 5 Marks questions <input type="number" id="fivemarks" placeholder="Enter a number"></p>
-<button id="generate">Generate</button>
+<body ng-controller="generateController">
+<p>Number of 2 Marks questions <input type="number" ng-model="nq2" placeholder="Enter a number"></p>
+<p>Number of 5 Marks questions <input type="number" ng-model="nq5" placeholder="Enter a number"></p>
+<button ng-click="generate()">Generate</button>
 <div id="twoMarkQuestions">
+<h2>Two Mark Questions</h2>
+<p ng-repeat="q1 in two">
+{{q1}}
+</p>
 </div>
 <div id="fiveMarkQuestions">
+<h2>Five Mark Questions</h2>
+<p ng-repeat="q2 in five">
+{{q2}}
+</p>
 </div>
 
 </body>
