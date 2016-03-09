@@ -14,6 +14,7 @@
 <p>Enter the type of questions <input type="number" ng-model="requiredTypes[i]" placeholder="Enter a number"></p>
 <p>Enter the number of questions <input type="number" ng-model="requiredQuestions[i]" placeholder="Enter a number"></p>
 </div>
+<h2>Total Marks : {{totalmarks}}</h2>
 <button ng-click="generate()">Generate</button>
 <div id="twoMarkQuestions">
 <h2>Two Mark Questions</h2>
@@ -26,6 +27,7 @@
 <p ng-repeat="q2 in five">
 {{q2}}
 </p>
+
 </div>
 
 </body>

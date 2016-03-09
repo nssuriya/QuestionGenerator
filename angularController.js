@@ -10,12 +10,17 @@ app.controller('generateController',function($scope){
 	$scope.typeNums = [];
 	$scope.requiredTypes=[];
 	$scope.requiredQuestions=[];
+	$scope.totalmarks=0;
 	$scope.addType=function()
 	{
 		$scope.typeCounter++;
 		$scope.typeNums.push(($scope.typeCounter)-1);
 	}
 	$scope.generate=function(){
+		for(index=0; index<$scope.requiredTypes.length; index++)
+		{
+			$scope.totalmarks=$scope.totalmarks+(($scope.requiredTypes[index])*($scope.requiredQuestions[index]));
+		}
 		for(index=0; index<$scope.requiredTypes.length; index++)
 		{
 			nq = $scope.requiredQuestions[index];
