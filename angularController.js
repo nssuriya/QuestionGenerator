@@ -17,6 +17,7 @@ app.controller('generateController',function($scope){
 		$scope.typeNums.push(($scope.typeCounter)-1);
 	}
 	$scope.generate=function(){
+		$scope.totalmarks=0;
 		for(index=0; index<$scope.requiredTypes.length; index++)
 		{
 			$scope.totalmarks=$scope.totalmarks+(($scope.requiredTypes[index])*($scope.requiredQuestions[index]));
