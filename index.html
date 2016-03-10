@@ -2,7 +2,8 @@
 <head>
 <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.4/ui-bootstrap-tpls.js"> </script>
 
 <!---- Bootstrap CDNs------>
 <!-- Latest compiled and minified CSS -->
@@ -17,6 +18,7 @@
 <!--- end of Bootstrap CDNs---->
 
 <script type= "text/javascript" src ="angularController.js"></script>
+<script type= "text/javascript" src ="unitSelectController.js"></script>
 
 <link rel="stylesheet" href= "style.css" />
 </head>
@@ -45,10 +47,64 @@
 	</div><!--- end of container-fluid-->
 </nav> <!--- end of NAV BAR----->
 
+<div class="container-fluid">
+	<div class="col-xs-2 col-sm-2 col-md-2">
+		<!-- User Name -->
+		<span class="glyphicon glyphicon-user"></span> {{username}} <br/>
+		<!-- Class selection drop down -->
+		<h4 class="ddheadings" >Class: </h4>
+		<div class="btn-group" uib-dropdown>
+		  <button id="single-button" type="button" class="btn btn-default btn-sm" uib-dropdown-toggle>
+			{{selectedClass}} <span class="caret"></span>
+		  </button>
+		  <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
+			<li ng-repeat="class in classes" role="menuitem" ng-click="onChange($index,'class')"><a href="#">{{class}}</a></li>
+		  </ul>
+		</div><br/>
+		<!-- Subject list out
+				unit list out -->
+		<h4 class="ddheadings" >Subject: </h4>
+		<div class="btn-group" uib-dropdown>
+		  <button id="single-button" type="button" class="btn btn-default btn-sm" uib-dropdown-toggle>
+			{{selectedSubject}} <span class="caret"></span>
+		  </button>
+		  <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
+			<li ng-repeat="subject in subjects" role="menuitem" ng-click="onChange($index,'subject')"><a href="#">{{subject}}</a></li>
+		  </ul>
+		</div> <br/>
+		
+		<!-- Generate button -->
+		<button class="btn btn-success pull-right" ng-click="onNextClick()">Next ></button>
+	</div>
+	<div class="col-xs-10 col-sm-10 col-md-10">
+		Hello!
+		<!-- List of questions -->
+	</div>
+</div>
+
+
+<script type="text/ng-template" id="marksQuestions.html">
+	<!-- Modal window for selecting marks  and no of questions-->
+	<div class="modal-header">
+            <h3 class="modal-title">Select Units</h3>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+                <a class="list-group-item" ng-class="{'selected' : selectedUnitClass[$index]}" ng-click="onUnitChange($index)" ng-repeat="unit in units">
+					{{ unit }}
+				</a>
+            </div>
+            Selected: <b>{{ selectedUnits.toString() }}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+</script>
 
 
 
-
+<!--
 
 <button ng-click="addType()">Add Type</button>
 <div ng-repeat="i in typeNums">
@@ -72,7 +128,7 @@
 <p ng-repeat="q2 in five">
 {{q2}}
 </p>
-</div>
+</div> -->
 
 </body>
 </html>
