@@ -1,30 +1,27 @@
 var app= angular.module('qpgenerator', ['ui.bootstrap']);
 
-app.controller('generateController',function($scope, $uibModal){
-	
-	$scope.twoMarks = ["Who am i?","Where am i?","How am I?","Are these stupid questions?","Are you smart?","what are you?","Who are you?","where is it ?",
-	"what is this?","How si this?"];
-	$scope.fiveMarks = ["First five marks","Second five marks","Third five mrks","Fourth five mrks","Fifth five mrks"];
-	$scope.two =[];
-	$scope.five=[];
-	$scope.typeCounter = 0;
-	$scope.typeNums = [];
-	$scope.requiredTypes=[];
-	$scope.requiredQuestions=[];
-	$scope.totalmarks=0;
+app.controller('sidebarController',function($scope, $uibModal){
 	
 	$scope = angular.extend($scope, {
 		
 		/* Class intialization */
+		selectedBoard : 'Select Board',
 		selectedClass : 'Select Class',
 		selectedSubject : 'Select Subject',
+		
+		/* Intialized based on board selected */
+		boards : ['CBSE','MATRICULATION','STATE'],
 		
 		/* Intialized based on classes available in json */
 		classes : ['7th', '8th', '9th', '10th', '11th', '12th'],
 		
 		/* Intialized based on class selected */
 		subjects : ['English','Maths','Social','Science','Tamil'],
-		username: 'hello',
+		
+		
+		
+		
+		username: 'Suriya',
 		
 		/* event handlers */
 		onChange: function(index,dropdown) {
@@ -32,6 +29,8 @@ app.controller('generateController',function($scope, $uibModal){
 			$scope.selectedClass = $scope.classes[index];
 			else if(dropdown=='subject')
 			$scope.selectedSubject = $scope.subjects[index];
+			else if(dropdown=='board')
+			$scope.selectedBoard = $scope.boards[index];
 		},
 		
 		onNextClick: function() {
@@ -52,6 +51,18 @@ app.controller('generateController',function($scope, $uibModal){
 			});
 		}
 	});
+	
+	
+	$scope.twoMarks = ["Who am i?","Where am i?","How am I?","Are these stupid questions?","Are you smart?","what are you?","Who are you?","where is it ?",
+	"what is this?","How si this?"];
+	$scope.fiveMarks = ["First five marks","Second five marks","Third five mrks","Fourth five mrks","Fifth five mrks"];
+	$scope.two =[];
+	$scope.five=[];
+	$scope.typeCounter = 0;
+	$scope.typeNums = [];
+	$scope.requiredTypes=[];
+	$scope.requiredQuestions=[];
+	$scope.totalmarks=0;
 	
 	$scope.addType=function()
 	{
