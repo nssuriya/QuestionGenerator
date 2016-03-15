@@ -5,7 +5,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.4/ui-bootstrap-tpls.js"> </script>
 
-<!---- Bootstrap CDNs------>
+<!-- Bootstrap CDNs------>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -17,18 +17,18 @@
 
 <!--- end of Bootstrap CDNs---->
 
-<script type= "text/javascript" src ="../angularController.js"></script>
-<script type= "text/javascript" src ="../unitSelectController.js"></script>
+<script type= "text/javascript" src ="../controllers/qpGenerator/angularController.js"></script>
+<script type= "text/javascript" src ="../controllers/qpGenerator/unitSelectController.js"></script>
 
-<link rel="stylesheet" href= "../public/stylesheets/style.css" />
+<link rel="stylesheet" href= "../stylesheets/style.css" />
 </head>
 
 
-<body ng-controller="generateController">
+<body>
 
 <!-- Nav Bar -->
 <nav class = "navbar navbar-default">
-	<div class= "container-fluid>
+	<div class= "container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 			<span class="sr-only">Toggle navigation</span>
@@ -47,7 +47,7 @@
 	</div><!--- end of container-fluid-->
 </nav> <!--- end of NAV BAR----->
 
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="sidebarController">
 	<div class="col-xs-2 col-sm-2 col-md-2">
 		<!-- User Name -->
 		<span class="glyphicon glyphicon-user"></span> {{username}} <br/>
